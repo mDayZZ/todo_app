@@ -1,0 +1,395 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "mine";
+    src: url("./fonts/mine.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+    padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+    margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p,
+   ul,
+   ol,
+   dl
+ ):where([class]) {
+    margin-block: 0;
+}
+
+:where(dd[class]) {
+    margin-left: 0;
+}
+
+:where(fieldset[class]) {
+    margin-left: 0;
+    padding: 0;
+    border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+    list-style: none;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+    --paragraphMarginBottom: 24px;
+
+    margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+    margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+html {
+    /**
+      Пригодится в большинстве ситуаций
+      (когда, например, нужно будет "прижать" футер к низу сайта)
+     */
+    height: 100%;
+    /**
+      Плавный скролл
+     */
+    scroll-behavior: smooth;
+}
+
+body {
+    /**
+      Пригодится в большинстве ситуаций
+      (когда, например, нужно будет "прижать" футер к низу сайта)
+     */
+    min-height: 100%;
+    /**
+      Унифицированный интерлиньяж
+     */
+    line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] { fill: currentColor }
+svg *[stroke] { stroke: currentColor }
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+    transition-property: fill, stroke;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+:root {
+    --color-dark-gray: #262526;
+    --color-light-gray: #F2EDE4;
+    --color-dark-blue: #0F0140;
+    --color-light-yellow: #EAF205;
+    --color-dark-yellow: #F2E205;
+
+
+    --background-color: var(--color-dark-gray);
+    --text-color: var(--color-light-gray);
+
+    --item-background-color: var(--color-light-gray);
+    --item-text-color: var(--color-dark-gray);
+
+    --accent-color: var(--color-dark-yellow);
+    --color-task-done: rgba(242, 237, 228, 0.6);
+
+    --font-family-base: 'Roboto', 'sans-serif';
+    --logo-font: 'mine';
+
+    --header-height: 250px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin-inline: auto;
+}
+
+
+header {
+    height: var(--header-height);
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    margin-bottom: 10px;
+}
+
+.header-logo {
+    font-family: var(--logo-font);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    line-height: 1.4;
+    /*margin-bottom: 50px;*/
+}
+
+.logo-name {
+    font-weight: 700;
+    font-size: clamp(24px,3.125vw,60px);
+}
+
+.logo-description {
+    font-weight: 300;
+    font-size: clamp(8px, 0.8vw, 32px);
+}
+
+main {
+    height: calc(100vh - var(--header-height) - 20px);
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+
+}
+
+
+
+.section-tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.task-card {
+    width: 40vw;
+    display: flex;
+    /*gap: 30px;*/
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--item-background-color);
+    /*border: 2px solid var(--item-background-color);*/
+    color: var(--item-text-color);
+    border-radius: 15px;
+    padding: 20px;
+    margin-inline: 30px;
+    margin-block: 10px;
+
+}
+
+.task-card.done {
+    position: relative;
+    opacity: 30%;
+}
+
+.task-card.done::after {
+    content: "";
+    position: absolute;
+    border: 1px solid red;
+    left: -10px;
+    right: -10px;
+    opacity: 100%;
+
+}
+
+
+.task-card.isempty {
+    font-family: var(--logo-font);
+    padding-block: 50px;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    line-height: 1;
+}
+
+.isempty-image {
+    font-family: var(--logo-font);
+    font-weight: 700;
+    font-size: clamp(16px,2vw, 48px);
+    padding-bottom: 0px;
+}
+
+.isempty-text {
+    font-size: clamp(10px,1vw, 32px)
+}
+
+.card-text {
+}
+
+.card-buttons {
+
+}
+
+.button {
+    border: 2px solid var(--item-text-color);
+    background-color: var(--item-background-color);
+    color: var(--item-text-color);
+    font-family: mine;
+}
+
+
+.button-done {
+    width: 50px;
+    aspect-ratio: 1;
+}
+
+.button-delete {
+    width: 50px;
+    aspect-ratio: 1;
+}
+
+.button.rounded{
+    border-radius: 50%;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 2px solid var(--item-background-color);
+    padding: 30px 20px;
+
+    border-radius: 10px;
+    margin-inline: auto;
+    width: 40vw;
+
+    align-items: start;
+}
+
+
+.form-header {
+    font-family: 'mine';
+
+
+}
+
+
+@media (max-width: 1024px) {
+    .logo-name {
+        font-size: clamp(24px, 5.8vw ,60px);
+    }
+
+    .logo-description {
+        font-size: clamp(8px, 2.125vw, 32px);
+    }
+}
+
+@media (max-width: 767px) {
+    header {
+        padding: 5px;
+    }
+    .tasks {
+        /*min-width: 100vw;*/
+    }
+
+    .task-card {
+        min-width: 80vw;
+        margin-block: 3px;
+    }
+
+}

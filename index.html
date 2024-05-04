@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>T0_D0</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+    <a href="/" class="header-logo">
+        <span class="logo-name">T0_D0</span>
+        <span class="logo-description">d1d u 4got?</span>
+    </a>
+
+</header>
+<main>
+    <section class="section-tasks">
+        <div class="tasks" id="task-list">
+            <div id="card-empty" class="task-card isempty">
+                <span class="isempty-image">GG</span>
+                <span class="isempty-text">u r done everything</span>
+
+            </div>
+            <div class="task-card done">
+                <div class="card-text">Купить пива</div>
+                <div class="card-buttons">
+                    <button
+                            class="button-done button rounded"
+                            type="button"
+                            title="done"
+                    >V</button>
+                    <button
+                            class="button-delete button rounded"
+                            type="button"
+                            title="delete"
+                    >X</button>
+                </div>
+            </div>
+            <div class="task-card">
+                <div class="card-text">Купить пива</div>
+                <div class="card-buttons">
+                    <button
+                            class="button-done button rounded"
+                            type="button"
+                            title="done"
+                    >V</button>
+                    <button
+                            class="button-delete button rounded"
+                            type="button"
+                            title="delete"
+                    >X</button>
+                </div>
+            </div>
+            <div class="task-card">
+                <div class="card-text">Купить пива</div>
+                <div class="card-buttons">
+                    <button
+                            class="button-done button rounded"
+                            type="button"
+                            title="done"
+                    >V</button>
+                    <button
+                            class="button-delete button rounded"
+                            type="button"
+                            title="delete"
+                    >X</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="form-section">
+        <span class="form-header">Add new Task</span>
+        <form id="form-add-task">
+            <input type="text" id="task_name" name="task_name" placeholder="Task name" required/>
+            <button type="submit" onclick="addTask(event)" class="button" id="btn-add">Add</button>
+        </form>
+    </section>
+
+
+</main>
+
+<script src="./main.js"></script>
+</body>
+</html>
