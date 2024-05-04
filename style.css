@@ -247,7 +247,7 @@ header {
 }
 
 main {
-    height: calc(100vh - var(--header-height) - 20px);
+    height: calc(100svh - var(--header-height) - 20px);
     display: flex;
 
     flex-direction: column;
@@ -365,6 +365,11 @@ main {
 .form-header {
     font-family: 'mine';
 
+
+}
+
+.form-input {
+    max-width: 20vw;
 
 }
 
