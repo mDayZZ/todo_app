@@ -1,1 +1,1 @@
-github.io/mDayZZ/todo_app
+https://mDayZZ.github.io/todo_app
