@@ -5,53 +5,56 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>T0_D0</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>T0_D0 Native</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <a href="/" class="header-logo">
-        <span class="logo-name">T0_D0</span>
-        <span class="logo-description">d1d u 4got?</span>
-    </a>
-
-</header>
-<main>
-    <section class="section-tasks">
-        <div class="tasks" id="task-list">
-            <div id="card-empty" class="task-card isempty">
-                <span class="isempty-image">GG</span>
-                <span class="isempty-text">u r done everything</span>
-
-            </div>
-            <div class="task-card">
-                <div class="card-text">Hug my mom <3</div>
-                <div class="card-buttons">
-                    <button
-                            class="button-done button rounded"
-                            type="button"
-                            title="done"
-                    >V</button>
-                    <button
-                            class="button-delete button rounded"
-                            type="button"
-                            title="delete"
-                    >X</button>
-                </div>
-            </div>
+    <header class="header">
+        <div class="header-logo">
+            <h1 class="header-logo-title">T0_D0</h1>
+            <p class="header-logo-description">(native version)</p>
         </div>
-    </section>
-    <section class="form-section">
-        <span class="form-header">Add new Task</span>
-        <form id="form-add-task">
-            <input class="form-input" type="text" id="task_name" name="task_name" placeholder="Task name" required/>
-            <button type="submit" onclick="addTask(event)" class="button" id="btn-add">Add</button>
-        </form>
-    </section>
+    </header>
+    <main>
+        <section class="task-zone">
+            <h2 class="visually-hidden">Task list</h2>
+            <label class="visually-hidden" for="list_filter">Tag filter</label>
+            <select name="list_filter" id="list_filter" class="task-zone-filter-list">
+                <option selected value="all" class="task-zone-filter-item">All</option>
+<!--                there append markers that tasks has-->
+            </select>
+            <div class="task-list-empty">
+                <h3 class="visually-hiden">Task list is empty</h3>
+                <h4 class="task-list-empty-title">GG</h4>
+                <p class="task-list-empty-description">All your tasks is done!</p>
+            </div>
+            <ul class="task-zone-list">
+                <li class="task-zone-item">
+                    <div class="task-card">
+                        <h3 class="task-card-title">Make my homework</h3>
+                        <button title="Finish the task" type="button" class="task-card-button button button-done">
+                            <span class="visually-hidden">Finish the task</span>
+                            V
+                        </button>
+                        <button title="Delete the task" type="button" class="task-card-button button button-delete">
+                            <span class="visually-hidden">Delete the task</span>
+                            X
+                        </button>
+                    </div>
+                </li>
 
-
-</main>
-
-<script src="./main.js"></script>
+            </ul>
+        </section>
+        <section class="createTask-zone">
+            <h2 class="visually-hidden">Create task</h2>
+            <form action="" class="createTask-form">
+                <label for="titleInput" class="createTask-form-titleLabel">Title:</label>
+                <div class="createTask-form-inputButton">
+                    <input id="titleInput" type="text" class="createTask-form-titleInput">
+                    <button class="createTask-form-button">Add</button>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
