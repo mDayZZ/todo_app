@@ -16,45 +16,97 @@
         </div>
     </header>
     <main>
-        <section class="task-zone">
+        <section class="task-zone container">
             <h2 class="visually-hidden">Task list</h2>
             <label class="visually-hidden" for="list_filter">Tag filter</label>
-            <select name="list_filter" id="list_filter" class="task-zone-filter-list">
+            <select name="list_filter" id="list_filter" class="task-zone-filter-list pixel-corners">
                 <option selected value="all" class="task-zone-filter-item">All</option>
 <!--                there append markers that tasks has-->
             </select>
-            <div class="task-list-empty">
-                <h3 class="visually-hiden">Task list is empty</h3>
-                <h4 class="task-list-empty-title">GG</h4>
-                <p class="task-list-empty-description">All your tasks is done!</p>
+            <div class="hidden task-list-empty pixel-corners">
+                <h3 class="visually-hidden">Task list is empty</h3>
+                <div class="task-list-empty-content">
+                    <h4 class="task-list-empty-title">GG</h4>
+                    <p class="task-list-empty-description">All your tasks is done!</p>
+                </div>
+
             </div>
             <ul class="task-zone-list">
                 <li class="task-zone-item">
-                    <div class="task-card">
+                    <ul class="task-card-tag-list pixel-corners">
+                        <li class="task-card-tag-item">memphis</li>
+                        <li class="task-card-tag-item">cults</li>
+                        <li class="task-card-tag-item">про письки</li>
+                    </ul>
+                    <div class="task-card finished pixel-corners">
                         <h3 class="task-card-title">Make my homework</h3>
-                        <button title="Finish the task" type="button" class="task-card-button button button-done">
-                            <span class="visually-hidden">Finish the task</span>
-                            V
-                        </button>
-                        <button title="Delete the task" type="button" class="task-card-button button button-delete">
-                            <span class="visually-hidden">Delete the task</span>
-                            X
-                        </button>
+                        <div class="task-card-buttons">
+                            <button title="Finish the task" type="button" class="task-card-button button  pixel-corners--wrapper">
+                                <span class="visually-hidden">Finish the task</span>
+                                V
+                            </button>
+                            <button title="Delete the task" type="button" class="task-card-button button button-delete pixel-corners--wrapper">
+                                <span class="visually-hidden">Delete the task</span>
+                                X
+                            </button>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="task-zone-item">
+                    <ul class="pixel-corners task-card-tag-list">
+                    </ul>
+                    <div class="task-card finished pixel-corners">
+                        <h3 class="task-card-title">Make my homework</h3>
+                        <div class="task-card-buttons">
+                            <button title="Finish the task" type="button" class="task-card-button button  pixel-corners--wrapper">
+                                <span class="visually-hidden">Finish the task</span>
+                                V
+                            </button>
+                            <button title="Delete the task" type="button" class="task-card-button button button-delete pixel-corners--wrapper">
+                                <span class="visually-hidden">Delete the task</span>
+                                X
+                            </button>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="task-zone-item">
+                    <ul class="task-card-tag-list pixel-corners">
+                        <li class="task-card-tag-item">memphis</li>
+                        <li class="task-card-tag-item">cults</li>
+                        <li class="task-card-tag-item">про письки</li>
+                    </ul>
+                    <div class="task-card finished pixel-corners">
+                        <h3 class="task-card-title">Make my homework</h3>
+                        <div class="task-card-buttons">
+                            <button title="Finish the task" type="button" class="task-card-button button  pixel-corners--wrapper">
+                                <span class="visually-hidden">Finish the task</span>
+                                V
+                            </button>
+                            <button title="Delete the task" type="button" class="task-card-button button button-delete pixel-corners--wrapper">
+                                <span class="visually-hidden">Delete the task</span>
+                                X
+                            </button>
+                        </div>
+
                     </div>
                 </li>
 
             </ul>
         </section>
-        <section class="createTask-zone">
+        <section class="createTask-zone container">
             <h2 class="visually-hidden">Create task</h2>
             <form action="" class="createTask-form">
                 <label for="titleInput" class="createTask-form-titleLabel">Title:</label>
                 <div class="createTask-form-inputButton">
-                    <input id="titleInput" type="text" class="createTask-form-titleInput">
-                    <button class="createTask-form-button">Add</button>
+                    <input required  placeholder="buy some milky (way)" id="titleInput" type="text" class="createTask-form-titleInput pixel-corners--wrapper">
+                    <button class="createTask-form-button button pixel-corners--wrapper">Add</button>
                 </div>
             </form>
         </section>
     </main>
+
+    <script type="text/javascript" src="./main.js"></script>
 </body>
 </html>

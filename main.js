@@ -1,62 +1,27 @@
-const taskForm = document.querySelector("#form-add-task")
-const addButton = document.getElementById("btn-add")
-const inputTask = taskForm.querySelector('#task_name')
-const taskList = document.querySelector('#task-list')
-const emptyCard = document.querySelector("#card-empty")
-console.log(inputTask)
+const tasks = [
+    {
+        id: 1,
+        title: 'Buy cheeze',
+        flag: 'B'
+    },
+    {},
+    {},
+    {},
 
-emptyCard.hidden = taskList.children.length > 1;
+]
 
-const checkTask = () => {
-    if (taskList.children.length > 1) {
-        emptyCard.hidden = true
+const tagList = document.querySelector('.task-card-tag-list');
+const tagItems = tagList.querySelectorAll('.task-card-tag-item');
+
+if (tagList.scrollWidth > tagList.clientWidth) {
+    const numberOfTags = tagItems.length;
+
+    for (let i = 0; i< tagItems.length; i++) {
+        tagItems[i].classList.add('cancel-comma')
     }
-    else {
-        emptyCard.hidden = false
+    for (let i = 2; i < tagItems.length; i++) {
+        tagItems[i].classList.add('visually-hidden');
     }
+
+    tagItems[1].textContent = `+${numberOfTags - 1}`;
 }
-
-
-const addTask = (event) => {
-    // event.preventDefault()
-    if (inputTask.validity.valid) {
-        const taskName = inputTask.value
-        cardHtml = `<div class="task-card">
-                <div class="card-text">${taskName}</div>
-                <div class="card-buttons">
-                    <button
-                            class="button-done button rounded"
-                            type="button"
-                            title="done"
-                    >V</button>
-                    <button
-                            class="button-delete button rounded"
-                            type="button"
-                            title="delete"
-                    >X</button>
-                </div>
-            </div>`
-        taskList.insertAdjacentHTML("beforeend", cardHtml)
-        inputTask.value = ""
-        inputTask.focus()
-    }
-    checkTask()
-}
-
-const deleteTask = (event) => {
-    if (event.target.classList.contains('button-delete') ) {
-        event.target.parentElement.parentElement.remove()
-    }
-    else if (event.target.classList.contains('button-done') ) {
-        if (event.target.parentElement.parentElement.classList.contains('done') ){
-            event.target.parentElement.parentElement.classList.remove('done')
-        }
-        else {
-            event.target.parentElement.parentElement.classList.add('done')
-        }
-    }
-    checkTask()
-}
-
-taskList.addEventListener('click', deleteTask)
-

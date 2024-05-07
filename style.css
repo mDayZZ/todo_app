@@ -192,3 +192,299 @@ svg * {
     clip: rect(0 0 0 0) !important;
     overflow: hidden !important;
 }
+
+.pixel-corners,
+.pixel-corners--wrapper {
+    clip-path: polygon(0px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px 100%,
+    calc(100% - 20px) 100%,
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 20px),
+    100% calc(100% - 20px),
+    100% 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 0px,
+    20px 0px,
+    20px 4px,
+    12px 4px,
+    12px 8px,
+    8px 8px,
+    8px 12px,
+    4px 12px,
+    4px 20px,
+    0px 20px);
+    position: relative;
+}
+
+.pixel-corners,
+.pixel-corners--wrapper {
+    clip-path: polygon(0px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px 100%,
+    calc(100% - 4px) 100%,
+    calc(100% - 4px) calc(100% - 4px),
+    100% calc(100% - 4px),
+    100% 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 0px,
+    4px 0px,
+    4px 4px,
+    0px 4px);
+    position: relative;
+}
+.pixel-corners {
+    border: 4px solid transparent;
+}
+.pixel-corners--wrapper {
+    width: fit-content;
+    height: fit-content;
+}
+.pixel-corners--wrapper .pixel-corners {
+    display: block;
+    clip-path: polygon(4px 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) calc(100% - 4px),
+    4px calc(100% - 4px));
+}
+.pixel-corners::after,
+.pixel-corners--wrapper::after {
+    content: "";
+    position: absolute;
+    clip-path: polygon(0px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px 100%,
+    calc(100% - 4px) 100%,
+    calc(100% - 4px) calc(100% - 4px),
+    100% calc(100% - 4px),
+    100% 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 0px,
+    4px 0px,
+    4px 4px,
+    0px 4px,
+    0px 50%,
+    4px 50%,
+    4px 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px 50%,
+    0px 50%);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000000;
+    display: block;
+    pointer-events: none;
+}
+.pixel-corners::after {
+    margin: -4px;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+
+:root {
+    --font-basic: 'mine';
+
+    --container-width: clamp(300px, 30vw, 800px);
+    --header-height: 100px;
+    --form-max-height: 40px;
+    --task-zone-min-height: 350px;
+}
+
+.button {
+    border: none;
+}
+
+
+body {
+    font-family: var(--font-basic);
+}
+
+.container {
+    width: var(--container-width);
+}
+
+.header{
+    display: flex;
+    height: var(--header-height);
+}
+
+.header-logo {
+    text-align: center;
+    margin: auto;
+}
+
+main {
+    height: calc(100svh - var(--header-height));
+    padding-top: 4vh;
+    padding-bottom: 2vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-zone {
+}
+
+.task-zone-filter-list {
+    min-width: 80px;
+
+    border: 3px solid;
+}
+
+
+.task-zone-list {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    flex: 1;
+    max-height: calc(100svh - var(--header-height) - var(--form-max-height) - 80px);
+    overflow: auto;
+
+    font-size: clamp(10px, 0.93vw, 20px);
+}
+.task-list-empty {
+    text-align: center;
+    display: flex;
+    aspect-ratio: 3;
+    /*border: 1px solid black;*/
+    /*border-radius: 5px;*/
+}
+
+.task-list-empty-content{
+    margin: auto;
+    font-size: clamp(12px, 1vw, 20px);
+}
+
+.task-card-tag-list {
+    font-size: clamp(8px, 0.6vw, 16px);
+    background-color: white;
+
+    display: inline-flex;
+    gap: 5px;
+    min-width: 80px;
+    max-width: 200px;
+
+
+    position: relative;
+    z-index: -1;
+    top: 20px;
+    left: 5px;
+
+    padding: 0 10px 20px;
+}
+
+.task-card-tag-item:not(:last-child):not(.cancel-comma)::after {
+    content: ',';
+}
+
+.task-card-tag-item {
+    padding-left: 1px;
+}
+
+.task-card {
+    position: relative;
+    background-color: white;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+
+}
+
+
+
+.task-card.finished {
+    z-index: 1;
+    position: relative;
+    /*opacity: 40%;*/
+}
+
+.finished .task-card-title {
+    text-decoration: line-through clamp(2px, 0.3vw, 5px);
+}
+
+.task-card-buttons {
+    display: flex;
+    gap: 5px;
+
+    /*font-weight: 700;*/
+}
+
+.task-card-button {
+    width: clamp(30px, 2.34vw, 45px);
+    aspect-ratio: 1;
+
+    border: none;
+
+}
+
+
+.createTask-form-inputButton {
+    /*white-space: nowrap;*/
+    display: flex;
+    align-items: center;
+    height: clamp(30px, 2.1vw, var(--form-max-height));
+
+    font-size: clamp(10px, 0.93vw, 20px);
+
+}
+
+.createTask-form-button {
+    width: 60px;
+    height: inherit;
+    /*aspect-ratio: 2;*/
+
+}
+
+.createTask-form-titleInput {
+    min-width: 20px;
+    flex: 1;
+    height: inherit;
+    margin-right: 5px;
+    padding-left: 5px;
+    border: 3px solid;
+
+
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 60vw;
+    }
+
+    .createTask-form-inputButton {
+        height: clamp(40px ,3.1vw, 60px);
+    }
+}
+
