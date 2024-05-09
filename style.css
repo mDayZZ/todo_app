@@ -323,6 +323,7 @@ svg * {
 
 body {
     font-family: var(--font-basic);
+    transition-duration: 0.2s;
 }
 
 .container {
@@ -389,10 +390,15 @@ main {
     font-size: clamp(8px, 0.6vw, 16px);
     background-color: white;
 
+
+    white-space: nowrap;
+    /*overflow: auto;*/
+
     display: inline-flex;
     gap: 5px;
-    min-width: 80px;
-    max-width: 200px;
+    min-width: 100px;
+    /*width: 110px;*/
+    /*max-width: 200px;*/
 
 
     position: relative;
@@ -403,7 +409,8 @@ main {
     padding: 0 10px 20px;
 }
 
-.task-card-tag-item:not(:last-child):not(.cancel-comma)::after {
+
+.task-card-tag-item:not(:last-child)::after {
     content: ',';
 }
 
