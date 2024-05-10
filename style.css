@@ -368,7 +368,7 @@ main {
     flex-direction: column;
     row-gap: 10px;
     flex: 1;
-    max-height: calc(100svh - var(--header-height) - var(--form-max-height) - 80px);
+    max-height: calc(100svh - var(--header-height) - var(--form-max-height) - 100px);
     overflow: auto;
 
     font-size: clamp(10px, 0.93vw, 20px);
