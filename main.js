@@ -1,3 +1,8 @@
+const clientServerSwitch = document.querySelector("#clientServerSwitch")
+const serverAuthForm = document.querySelector(".serverAuthForm")
+const clearDataButton = document.querySelector("#clearDataButton")
+
+
 const createTaskForm = document.querySelector('#createTaskForm')
 const titleInput = document.querySelector('#titleInput')
 const taskList = document.querySelector('#taskList')
@@ -7,6 +12,40 @@ const emptyCardElement = document.querySelector('.task-list-empty')
 isDev = false
 
 let currentOptionTag = 'all'
+
+
+
+
+clearDataButton.addEventListener('click', (event)=>{
+    localStorage.clear()
+    window.location.reload()
+})
+
+clientServerSwitch.addEventListener('click', (event)=> {
+    if (clientServerSwitch.checked) {
+        // serverAuthForm.classList.remove('hidden')
+        // // serverAuthForm.removeAttribute('hidden')
+        // setTimeout(()=>{
+        //     serverAuthForm.classList.add('showed')
+        //     serverAuthForm.classList.remove('hide')
+        // },300)
+
+        serverAuthForm.classList.add('showed')
+        serverAuthForm.classList.remove('hide')
+
+    }
+    else {
+        // serverAuthForm.setAttribute('hidden', '')
+        serverAuthForm.classList.add('hide')
+        serverAuthForm.classList.remove('showed')
+        // setTimeout(()=>{serverAuthForm.classList.add('hidden')},300)
+
+    }
+})
+
+
+
+
 
 function Task(id, title, tags, isFinished) {
     this.id = id

@@ -16,13 +16,48 @@
         </div>
     </header>
     <main>
+        <dialog id="modal_options" class="modal-options modal">
+            <div class="modal-options_card modal_card">
+                <div class="modal-options_card-header">
+                    <button onclick="window.modal_options.close()" class="modal-options_card-button">X</button>
+                </div>
+                <ul class="modal-options_card-list" id="options_list">
+                    <li class="modal-options_card-item">
+                        Client
+                        <label for="clientServerSwitch" class="switch">
+                            <input disabled type="checkbox" name="Client/Server" id="clientServerSwitch"><span class="slider"></span>
+                        </label>
+                        Server
+                    </li>
+                    <li class="modal-options_card-item">
+                        <div class="serverAuthForm hide">
+                            <label for="login">Login</label>
+                            <input id="login" type="text">
+                            <label for="password">Password</label>
+                            <input id="password" type="text">
+                            <button style="float: right">Authorize</button>
+                        </div>
+                    </li>
+                    <li class="modal-options_card-item">
+                        <button id="clearDataButton" type="button" name="Clear Data" value="clearData" class="button">Clear Data</button>
+                    </li>
+                </ul>
+            </div>
+        </dialog>
         <section class="task-zone container">
             <h2 class="visually-hidden">Task list</h2>
             <label class="visually-hidden" for="list_filter">Tag filter</label>
-            <select name="list_filter" id="list_filter" class="task-zone-filter-list pixel-corners">
-                <option selected value="all" class="task-zone-filter-item">All</option>
-<!--                there append markers that tasks has-->
-            </select>
+            <div class="task-zone-header">
+                <select name="list_filter" id="list_filter" class="task-zone-filter-list pixel-corners">
+                    <option selected value="all" class="task-zone-filter-item">All</option>
+                    <!--                there append markers that tasks has-->
+                </select>
+                <button type="button"  onclick="window.modal_options.showModal()" title="Options" class="task-zone-header-option-button button">
+                    <span class="visually-hidden">Options</span>
+                    Options
+                </button>
+            </div>
+
             <div class="hidden task-list-empty pixel-corners">
                 <h3 class="visually-hidden">Task list is empty</h3>
                 <div class="task-list-empty-content">
@@ -32,67 +67,6 @@
 
             </div>
             <ul class="task-zone-list" id="taskList">
-<!--                <li class="task-zone-item">-->
-<!--                    <ul class="task-card-tag-list pixel-corners">-->
-<!--                        <li class="task-card-tag-item">memphis</li>-->
-<!--                        <li class="task-card-tag-item">cults</li>-->
-<!--                        <li class="task-card-tag-item">про письки</li>-->
-<!--                    </ul>-->
-<!--                    <div class="task-card finished pixel-corners">-->
-<!--                        <h3 class="task-card-title">Make my homework</h3>-->
-<!--                        <div class="task-card-buttons">-->
-<!--                            <button title="Finish the task" type="button" class="task-card-button button  pixel-corners&#45;&#45;wrapper">-->
-<!--                                <span class="visually-hidden">Finish the task</span>-->
-<!--                                V-->
-<!--                            </button>-->
-<!--                            <button title="Delete the task" type="button" class="task-card-button button button-delete pixel-corners&#45;&#45;wrapper">-->
-<!--                                <span class="visually-hidden">Delete the task</span>-->
-<!--                                X-->
-<!--                            </button>-->
-<!--                        </div>-->
-
-<!--                    </div>-->
-<!--                </li>-->
-<!--                <li class="task-zone-item">-->
-<!--                    <ul class="pixel-corners task-card-tag-list">-->
-<!--                    </ul>-->
-<!--                    <div class="task-card finished pixel-corners">-->
-<!--                        <h3 class="task-card-title">Make my homework</h3>-->
-<!--                        <div class="task-card-buttons">-->
-<!--                            <button title="Finish the task" type="button" class="task-card-button button  pixel-corners&#45;&#45;wrapper">-->
-<!--                                <span class="visually-hidden">Finish the task</span>-->
-<!--                                V-->
-<!--                            </button>-->
-<!--                            <button title="Delete the task" type="button" class="task-card-button button button-delete pixel-corners&#45;&#45;wrapper">-->
-<!--                                <span class="visually-hidden">Delete the task</span>-->
-<!--                                X-->
-<!--                            </button>-->
-<!--                        </div>-->
-
-<!--                    </div>-->
-<!--                </li>-->
-<!--                <li class="task-zone-item">-->
-<!--                    <ul class="task-card-tag-list pixel-corners">-->
-<!--                        <li class="task-card-tag-item">memphis</li>-->
-<!--                        <li class="task-card-tag-item">cults</li>-->
-<!--                        <li class="task-card-tag-item">про письки</li>-->
-<!--                    </ul>-->
-<!--                    <div class="task-card finished pixel-corners">-->
-<!--                        <h3 class="task-card-title">Make my homework</h3>-->
-<!--                        <div class="task-card-buttons">-->
-<!--                            <button title="Finish the task" type="button" class="task-card-button button  pixel-corners&#45;&#45;wrapper">-->
-<!--                                <span class="visually-hidden">Finish the task</span>-->
-<!--                                V-->
-<!--                            </button>-->
-<!--                            <button title="Delete the task" type="button" class="task-card-button button button-delete pixel-corners&#45;&#45;wrapper">-->
-<!--                                <span class="visually-hidden">Delete the task</span>-->
-<!--                                X-->
-<!--                            </button>-->
-<!--                        </div>-->
-
-<!--                    </div>-->
-<!--                </li>-->
-
             </ul>
         </section>
         <section class="createTask-zone container">
@@ -100,7 +74,7 @@
             <form id="createTaskForm" action="" class="createTask-form">
                 <label for="titleInput" class="createTask-form-titleLabel">Title:</label>
                 <div class="createTask-form-inputButton">
-                    <input required  placeholder="buy some milky (way)" id="titleInput" type="text" class="createTask-form-titleInput pixel-corners--wrapper">
+                    <input maxlength="30" required  placeholder="buy some milky (way)" id="titleInput" type="text" class="createTask-form-titleInput pixel-corners--wrapper">
                     <button class="createTask-form-button button pixel-corners--wrapper">Add</button>
                 </div>
             </form>
